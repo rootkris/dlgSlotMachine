@@ -35,7 +35,7 @@
         position: relative;
         width: 100%;
         height: 25%;
-        z-index: 1;
+        z-index: 3;
     }
 
     .gameBodySlots{
@@ -44,7 +44,7 @@
         width: 600px;
         height: 100%;
         left: 100px;
-        z-index: 0;
+        z-index: 1;
     }
 
     .gameBodySlotsSides{
@@ -52,6 +52,7 @@
         position: relative;
         width: 100%;
         height: 50%;
+        z-index: 2;
     }
 
     .gameBodyFooter{
@@ -59,9 +60,16 @@
         position: relative;
         width: 100%;
         height: 25%;
-        z-index: 1;
+        z-index: 3;
     }
-
+    .gameBodySlotsOverlay{
+        background-color: white;
+        position: relative;
+        width: 100%;
+        height: 75%;
+        top: 25%;
+        z-index: 3;
+    }
 
     </style>
 
@@ -99,6 +107,9 @@
                 <canvas id="slot5">
 
                 </canvas>
+                <div class="gameBodySlotsOverlay">
+
+                </div>
             </div>
         </div>
 

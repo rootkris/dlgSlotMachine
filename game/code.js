@@ -70,13 +70,13 @@ function drawBoxes(inputArray, canvasName, slotNumber){
         //again
     }
 
-    var startPos = selectPosition(slotNumber)
+    var startPos = selectPosition(slotNumber) //Selects starting positions
 
     c.style.top = startPos+"px"
 
 }
 
-function slotSpeed(slotNumber){
+function slotSpeed(slotNumber){ //Max and min speeds
     var values = winArr[slotNumber].length
 
     if(values < 5){
@@ -89,7 +89,7 @@ function slotSpeed(slotNumber){
     slotSpeeds[slotNumber] = values
 }
 
-function slotOffset(canvasName, slotNumber){
+function slotOffset(canvasName, slotNumber){ //This animates the slots
     var c = document.getElementById(canvasName)
     var max = winArr[slotNumber].length - 1
     var slotDefault = (winArr[slotNumber][max])-64
@@ -100,18 +100,18 @@ function slotOffset(canvasName, slotNumber){
     slotPositions[slotNumber] = c.offsetTop
 }
 
-function initRoll(){
+function initRoll(){ //Initiates the rolling of the slots
     var counter = 0
-    for(i=0; i<5; i++){
+    for(i=0; i<5; i++){ //Slot speeds are appended to a global array
         slotSpeed(i)
     }
-    selectWinners()
-    var timerloop = setInterval(function(){
+    selectWinners() // Winners are selected
+    var timerloop = setInterval(function(){ // Animation starts
         console.log(counter)
 
-        if(counter > 500){
+        if(counter > 500){ //After 500 cycles starts to slow down
             var check=0
-            for(i=0; i<5; i++){
+            for(i=0; i<5; i++){ // Checks every slot and starts to slow them down if slot positions are 500pxs away from win result
                 if(winners[i]+500-slotPositions[i]>0){
                     slotSpeeds[i]--
                 }
@@ -126,7 +126,7 @@ function initRoll(){
                 }
             }
             if(check == 5){
-                clearInterval(timerloop)
+                clearInterval(timerloop) // Loop end
             }
         }
         else{

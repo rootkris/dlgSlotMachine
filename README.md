@@ -1,0 +1,2 @@
+# dlgSlotMachine
+Slot machine game

@@ -1,13 +1,16 @@
 
 //GLOBALS
-var inArr = ["Adventure", "Sci-Fi", "Crime", "Thriller", "Su ema", "Puzzle",
+var inArr = [["Adventure", "Sci-Fi", "Crime", "Thriller", "Su ema", "Puzzle",
 "lolol", "Midagiveel", "teretere", "boooo","chicka","chicka","Adventure", "Sci-Fi", "Crime", 
-"Thriller", "Su ema", "Puzzle","lolol", "Midagiveel", "teretere", "boooo","chicka","chicka"]
+"Thriller", "Su ema", "Puzzle","lolol", "Midagiveel", "teretere", "boooo","chicka","chicka"],["blablbal","olololol","afdefefaef","feseret"],
+["blablbal","olololol","afdefefaef","feseret","gfoksr","oafkeosef","orei332"],["3","1","4","5","5,","743","534","632"],
+["3","1","4","5"]]
+/*
 var inArr2 = ["blablbal","olololol","afdefefaef","feseret"]
 var inArr4 = ["blablbal","olololol","afdefefaef","feseret","gfoksr","oafkeosef","orei332"]
 var inArr3 = ["3","1","4","5","5,","743","534","632"]
 var inArr5 = ["3","1","4","5"]
-
+*/
 var winArr = [[],[],[],[],[]] // declaring winArray for win condition slot positions
 
 var slotSpeeds = [0,0,0,0,0] // Declaring slot speeds per roll
@@ -15,7 +18,9 @@ var slotSpeeds = [0,0,0,0,0] // Declaring slot speeds per roll
 var slotPositions = [0,0,0,0,0] // Slot positions to control the slot speeds
 
 var winners = [0,0,0,0,0] // Winners array per roll
+var winnersText = ["","","","",""]
 
+var gameSession = 0
 //GLOBALS
 
 function getRandomInt(max){
@@ -23,16 +28,16 @@ function getRandomInt(max){
 }
 
 window.onload = function(){
-    canvasSize(inArr, "slot1")
-    drawBoxes(inArr, "slot1", 0)
-    canvasSize(inArr2, "slot2")
-    drawBoxes(inArr2, "slot2", 1)
-    canvasSize(inArr3, "slot3")
-    drawBoxes(inArr3, "slot3", 2)
-    canvasSize(inArr4, "slot4")
-    drawBoxes(inArr4, "slot4", 3)
-    canvasSize(inArr5, "slot5")
-    drawBoxes(inArr5, "slot5", 4)
+    canvasSize(inArr[0], "slot1")
+    drawBoxes(inArr[0], "slot1", 0)
+    canvasSize(inArr[1], "slot2")
+    drawBoxes(inArr[1], "slot2", 1)
+    canvasSize(inArr[2], "slot3")
+    drawBoxes(inArr[2], "slot3", 2)
+    canvasSize(inArr[3], "slot4")
+    drawBoxes(inArr[3], "slot4", 3)
+    canvasSize(inArr[4], "slot5")
+    drawBoxes(inArr[4], "slot5", 4)
 }
 
 
@@ -51,6 +56,12 @@ function selectPosition(slotNumber){ // Generates a position randomly for a valu
 function selectWinners(){
     for(i=0; i<5; i++){
         winners[i] = selectPosition(i)
+        for(k=0; k<winArr[i].length; k++){
+            console.log("test")
+            if(winners[i] == winArr[i][k]){
+                winnersText[i] = inArr[i][k]
+            }
+        }
     }
 }
 
@@ -102,6 +113,7 @@ function slotOffset(canvasName, slotNumber){ //This animates the slots
 
 function initRoll(){ //Initiates the rolling of the slots
     var counter = 0
+    gameSession = 1
     for(i=0; i<5; i++){ //Slot speeds are appended to a global array
         slotSpeed(i)
     }
@@ -127,6 +139,8 @@ function initRoll(){ //Initiates the rolling of the slots
             }
             if(check == 5){
                 clearInterval(timerloop) // Loop end
+                counter = 0
+                gameSession = 0
             }
         }
         else{
@@ -139,6 +153,5 @@ function initRoll(){ //Initiates the rolling of the slots
         }
 
     },10)
-    counter = 0
 
 }

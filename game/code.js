@@ -38,6 +38,8 @@ window.onload = function(){
     drawBoxes(inArr[3], "slot4", 3)
     canvasSize(inArr[4], "slot5")
     drawBoxes(inArr[4], "slot5", 4)
+
+    document.getElementById("loader").style.display = "none" // Hides loading screen
 }
 
 

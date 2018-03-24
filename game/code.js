@@ -11,14 +11,21 @@ var inArr4 = ["blablbal","olololol","afdefefaef","feseret","gfoksr","oafkeosef",
 var inArr3 = ["3","1","4","5","5,","743","534","632"]
 var inArr5 = ["3","1","4","5"]
 */
+
+var turn = 0 // how many rolls have been rolled so a turn counter basically
+
 var winArr = [[],[],[],[],[]] // declaring winArray for win condition slot positions
 
 var slotSpeeds = [0,0,0,0,0] // Declaring slot speeds per roll
 
+var slotStates = [0,0,0,0,0] // Declaring slot states(if they want to be held for a roll)
+
 var slotPositions = [0,0,0,0,0] // Slot positions to control the slot speeds
 
 var winners = [0,0,0,0,0] // Winners array per roll
+var winnersCache = [0,0,0,0,0]
 var winnersText = ["","","","",""]
+var winnersTextCache = ["","","","",""]
 
 var gameSession = 0
 //GLOBALS
@@ -59,11 +66,62 @@ function selectWinners(){
     for(i=0; i<5; i++){
         winners[i] = selectPosition(i)
         for(k=0; k<winArr[i].length; k++){
-            console.log("test")
             if(winners[i] == winArr[i][k]){
                 winnersText[i] = inArr[i][k]
             }
         }
+    }
+}
+
+function cacheWinners(){
+    if(turn == 0){
+        // Inital turn dont cache winners, since no winners have been stored
+    }
+    else{
+        for(i=0; i<5; i++){
+            winnersCache[i] = winners[i]
+            for(k=0; k<winArr[i].length; k++){
+                if(winnersCache[i] == winArr[i][k]){
+                    winnersTextCache[i] = inArr[i][k]
+                }
+            }
+        }
+    }
+}
+
+function holdSelection(inputNumber){
+    if(turn == 0){
+        // Inital turn the buttons do nothing and are disabled.
+    }
+    else{
+
+        if(slotStates[inputNumber] == 0){
+            slotStates[inputNumber] = 1
+        }
+        else{
+            slotStates[inputNumber] = 0
+        }
+    }
+}
+
+function toggleButtons(){
+    // Toggles hold buttons and roll button
+    if(gameSession == 1){
+        document.getElementById("holdButton1").disabled = true
+        document.getElementById("holdButton2").disabled = true
+        document.getElementById("holdButton3").disabled = true
+        document.getElementById("holdButton4").disabled = true
+        document.getElementById("holdButton5").disabled = true
+        document.getElementById("rollButton").disabled = true
+    }
+    else{
+        document.getElementById("holdButton1").disabled = false
+        document.getElementById("holdButton2").disabled = false
+        document.getElementById("holdButton3").disabled = false
+        document.getElementById("holdButton4").disabled = false
+        document.getElementById("holdButton5").disabled = false
+        document.getElementById("rollButton").disabled = false
+
     }
 }
 
@@ -116,10 +174,19 @@ function slotOffset(canvasName, slotNumber){ //This animates the slots
 function initRoll(){ //Initiates the rolling of the slots
     var counter = 0
     gameSession = 1
+    toggleButtons()
     for(i=0; i<5; i++){ //Slot speeds are appended to a global array
         slotSpeed(i)
     }
+    cacheWinners() // Caches last winners
     selectWinners() // Winners are selected
+    for(j=0; j<5; j++){
+        if(slotStates[j] == 1){
+            slotSpeeds[j] = 0
+            winners[j] = cacheWinners[j]
+            winnersText[j] = winnersTextCache[j]
+        }
+    }
     var timerloop = setInterval(function(){ // Animation starts
         console.log(counter)
 
@@ -129,10 +196,10 @@ function initRoll(){ //Initiates the rolling of the slots
                 if(winners[i]+500-slotPositions[i]>0){
                     slotSpeeds[i]--
                 }
-                if(slotSpeeds[i] < 1){
+                if(slotSpeeds[i] < 1 && slotStates[i] == 0){
                     slotSpeeds[i] = 1
                 }
-                if(slotSpeeds[i] == 1 && slotPositions[i] == winners[i]){
+                if((slotSpeeds[i] == 0 && slotStates[i] == 1) || (slotSpeeds[i] == 1 && slotPositions[i] == winners[i])){
                     check++
                 }
                 else{
@@ -141,8 +208,11 @@ function initRoll(){ //Initiates the rolling of the slots
             }
             if(check == 5){
                 clearInterval(timerloop) // Loop end
+                turn++
                 counter = 0
                 gameSession = 0
+                slotStates = [0,0,0,0,0]
+                toggleButtons()
             }
         }
         else{

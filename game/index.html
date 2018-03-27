@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script src="code.js"></script>
-    <title>Test</title>
+    <title>Game Idea Bandit</title>
 
     <style>
     
@@ -113,6 +113,35 @@
         to {top:0; opacity:1}
     }
 
+    @-webkit-keyframes spin {
+        0% { -webkit-transform: rotate(0deg); }
+        100% { -webkit-transform: rotate(360deg); }
+    }
+
+    @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+
+        /* Add animation to "page content" */
+    .animate-bottom {
+        position: relative;
+        -webkit-animation-name: animatebottom;
+        -webkit-animation-duration: 1s;
+        animation-name: animatebottom;
+        animation-duration: 1s
+    }
+
+    @-webkit-keyframes animatebottom {
+        from { bottom:-100px; opacity:0 } 
+        to { bottom:0px; opacity:1 }
+    }
+
+    @keyframes animatebottom { 
+        from{ bottom:-100px; opacity:0 } 
+        to{ bottom:0; opacity:1 }
+    }
+
     /* The Close Button */
     .close {
         color: white;
@@ -143,15 +172,27 @@
     }
 
     .loader {
-	position: fixed;
-	left: 0px;
-	top: 0px;
-	width: 100%;
-	height: 100%;
-	z-index: 9999;
-	background-color: white;
-    text-align: center;
-    color: black;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        z-index: 999;
+        width: 150px;
+        height: 150px;
+        margin: -75px 0 0 -75px;
+        border: 16px solid #f3f3f3;
+        border-radius: 50%;
+        border-top: 16px solid #3498db;
+        width: 120px;
+        height: 120px;
+        -webkit-animation: spin 2s linear infinite;
+        animation: spin 2s linear infinite;
+    }
+    .loaderBody{
+        position: absolute;
+        z-index: 998;
+        width: 100%;
+        height: 100%;
+        background-color: black;
     }
 
     </style>
@@ -159,11 +200,12 @@
 </head>
 <body>
 
-    <div class="loader" id="loader">
-        <h1>Game is loading...</h1>
+    <div class="loaderBody" id="loaderBody">
+        <div class="loader" id="loader">
+        </div>
     </div>
 
-    <div class="gameBody">
+    <div class="gameBody" id="gameBody">
 
         <div class="gameBodyHeader">
             <button type="button" id=holdButton1 onclick="holdSelection(0)" disabled>Hold 1</button>
@@ -232,33 +274,53 @@
             var slot5 = document.getElementById("slot5")
             
             slot1.onclick = function(){
-                if(gameSession == 0){
+                if(gameSession == 0 && turn>0){
                     modal.style.display = "block"
                     document.getElementById("modal-body-id").innerHTML = "<p>You clicked: "+winnersText[0]+"</p>"
                 }
+                else if(turn==0){
+                    modal.style.display = "block"
+                    document.getElementById("modal-body-id").innerHTML = "<p>If you want more information, play the game first!</p>"
+                }
             }
             slot2.onclick = function(){
-                if(gameSession == 0){
+                if(gameSession == 0 && turn>0){
                     modal.style.display = "block"
                     document.getElementById("modal-body-id").innerHTML = "<p>You clicked: "+winnersText[1]+"</p>"
                 }
+                else if(turn==0){
+                    modal.style.display = "block"
+                    document.getElementById("modal-body-id").innerHTML = "<p>If you want more information, play the game first!</p>"
+                }
             }
             slot3.onclick = function(){
-                if(gameSession == 0){
+                if(gameSession == 0 && turn>0){
                     modal.style.display = "block"
                     document.getElementById("modal-body-id").innerHTML = "<p>You clicked: "+winnersText[2]+"</p>"
                 }
+                else if(turn==0){
+                    modal.style.display = "block"
+                    document.getElementById("modal-body-id").innerHTML = "<p>If you want more information, play the game first!</p>"
+                }
             }
             slot4.onclick = function(){
-                if(gameSession == 0){
+                if(gameSession == 0 && turn>0){
                     modal.style.display = "block"
                     document.getElementById("modal-body-id").innerHTML = "<p>You clicked: "+winnersText[3]+"</p>"
                 }
+                else if(turn==0){
+                    modal.style.display = "block"
+                    document.getElementById("modal-body-id").innerHTML = "<p>If you want more information, play the game first!</p>"
+                }
             }
             slot5.onclick = function(){
-                if(gameSession == 0){
+                if(gameSession == 0 && turn>0){
                     modal.style.display = "block"
                     document.getElementById("modal-body-id").innerHTML = "<p>You clicked: "+winnersText[4]+"</p>"
+                }
+                else if(turn==0){
+                    modal.style.display = "block"
+                    document.getElementById("modal-body-id").innerHTML = "<p>If you want more information, play the game first!</p>"
                 }
             }
             span.onclick = function(){

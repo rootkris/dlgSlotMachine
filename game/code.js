@@ -34,6 +34,12 @@ function getRandomInt(max){
     return Math.floor(Math.random()* Math.floor(max))
 }
 
+function testLoading(){
+    for(q=0;q<10000;q++){
+        console.log("testing loading screen")
+    }
+}
+
 window.onload = function(){
     canvasSize(inArr[0], "slot1")
     drawBoxes(inArr[0], "slot1", 0)
@@ -45,9 +51,9 @@ window.onload = function(){
     drawBoxes(inArr[3], "slot4", 3)
     canvasSize(inArr[4], "slot5")
     drawBoxes(inArr[4], "slot5", 4)
-
-    document.getElementById("loader").style.display = "none" // Hides loading screen
+    document.getElementById("loaderBody").style.display = "none" // Hides loading screen
 }
+
 
 
 //Canvas size by the size of the array, width is constant
@@ -172,6 +178,7 @@ function slotOffset(canvasName, slotNumber){ //This animates the slots
 }
 
 function initRoll(){ //Initiates the rolling of the slots
+    turn++
     var counter = 0
     gameSession = 1
     toggleButtons()

@@ -200,6 +200,8 @@
 </head>
 <body>
 
+    <audio id="bgAudio" src="bg.ogg" type="audio/mpeg" loop></audio>
+
     <div class="loaderBody" id="loaderBody">
         <div class="loader" id="loader">
         </div>
@@ -244,6 +246,7 @@
 
         <div class="gameBodyFooter">
             <button type="button" id="rollButton" onclick="initRoll()">Roll</button>
+            <button type="button" id="muteButton" onclick="muteToggle()">Music OFF</button>
         </div>
     </div>
 

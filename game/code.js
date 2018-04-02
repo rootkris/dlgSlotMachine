@@ -26,7 +26,7 @@ var winners = [0,0,0,0,0] // Winners array per roll
 var winnersCache = [0,0,0,0,0]
 var winnersText = ["","","","",""]
 var winnersTextCache = ["","","","",""]
-
+var music = 1
 var gameSession = 0
 //GLOBALS
 
@@ -34,13 +34,8 @@ function getRandomInt(max){
     return Math.floor(Math.random()* Math.floor(max))
 }
 
-function testLoading(){
-    for(q=0;q<10000;q++){
-        console.log("testing loading screen")
-    }
-}
-
 window.onload = function(){
+
     canvasSize(inArr[0], "slot1")
     drawBoxes(inArr[0], "slot1", 0)
     canvasSize(inArr[1], "slot2")
@@ -51,10 +46,25 @@ window.onload = function(){
     drawBoxes(inArr[3], "slot4", 3)
     canvasSize(inArr[4], "slot5")
     drawBoxes(inArr[4], "slot5", 4)
+
     document.getElementById("loaderBody").style.display = "none" // Hides loading screen
+    document.getElementById("bgAudio").play()
+
+
 }
 
-
+function muteToggle(){
+    if(music == 1){
+        music = 0
+        document.getElementById("bgAudio").pause()
+        document.getElementById("muteButton").innerHTML = "Music ON"
+    }
+    else{
+        music = 1
+        document.getElementById("bgAudio").play()
+        document.getElementById("muteButton").innerHTML = "Music OFF"
+    }
+}
 
 //Canvas size by the size of the array, width is constant
 function canvasSize(a, canvasName){

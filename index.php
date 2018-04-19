@@ -251,7 +251,7 @@
         </div>
 
         <div class="gameBodyFooter">
-            <button type="button" id="rollButton" onclick="initRoll()">Roll</button>
+            <button type="button" id="rollButton" onclick="initGame()">Roll</button>
             <button type="button" id="muteButton" onclick="muteToggle()">Music OFF</button>
         </div>
     </div>

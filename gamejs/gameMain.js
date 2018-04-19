@@ -36,7 +36,6 @@ let SLOTS = [SLOT_1,SLOT_2,SLOT_3,SLOT_4,SLOT_5]
 let GAME_STATE = 0
 let winnerSlots = []
 let slotStates = [0,0,0,0,0]
-let holdStates = [0,0,0,0,0]
 
 /*
 
@@ -59,6 +58,7 @@ window.onload = function(){
     SLOT_3 = generateSlotContent(SLOT_TYPE_3, generateData, SET_SLOT_HEIGHT)
     SLOT_4 = generateSlotContent(SLOT_TYPE_4, generateData, SET_SLOT_HEIGHT)
     SLOT_5 = generateSlotContent(SLOT_TYPE_5, generateData, SET_SLOT_HEIGHT)
+    SLOTS = [SLOT_1,SLOT_2,SLOT_3,SLOT_4,SLOT_5]
 
     //Draw all the slots
     load_status = "Drawing slots on canvas"
@@ -87,18 +87,18 @@ window.onload = function(){
 
 */
 function holdButtonToggler(holdButtonNumber){
-    if(holdStates[holdButtonNumber] == 0){
-        holdStates[holdButtonNumber] = 1
+    if(slotStates[holdButtonNumber] == 0){
+        slotStates[holdButtonNumber] = 1
     }
     else{
-        holdStates[holdButtonNumber] = 0
+        slotStates[holdButtonNumber] = 0
     }
 }
 
 function selectWinners(){
     for(let i=0; i<5; i++){
-        if(holdStates[i] == 0){
-            winnerSlots[i] = randomSlotPosition(SLOTS[i])
+        if(slotStates[i] == 0){
+            winnerSlots[i] = -(randomSlotPosition(SLOTS[i]))
         }
     }
 }
@@ -111,71 +111,45 @@ function initGame(){
     document.getElementById(HOLD_BUTTON_3).disabled = true
     document.getElementById(HOLD_BUTTON_4).disabled = true
     document.getElementById(HOLD_BUTTON_5).disabled = true
-
+    let counter = 0
+    let gameDone = 0
+    let start_gap = 150
+    let stop_gap = 50
+    let slotsClosed = 0
+    let SPEED = INITIAL_SPEED 
     selectWinners()
 
     var timerloop = setInterval(function(){
-        let SPEED = INITIAL_SPEED 
-        let counter = 0
-        let gameDone = 0
+        console.log(counter)
+        for(let i = 0; i<SLOTS.length; i++){
+            if(slotStates[i] == 0){
+                slotAnimation(SLOTS[i], SLOTCANVAS[i], SPEED)
+            }
+            else{
+                slotStates[i] = 1
+            }
+        }
 
-        if(counter > 300){
-            for(let i = 0; i<SLOTS.length; i++){
-                if(holdStates[i] == 0){
-                    document.getElementById(SLOTCANVAS[i]).style.top = (document.getElementById(SLOTCANVAS[i]).style.top)+250+(7*i)+"px"
-                    SPEED--
-                    slotAnimation(SLOTS[i], SLOTCANVAS[i], SPEED)
-                }
+        if(counter>start_gap){
+            if(slotStates[slotsClosed] == 0){
+                document.getElementById(SLOTCANVAS[slotsClosed]).style.top = winnerSlots[slotsClosed]+"px"
+                slotStates[slotsClosed] = 1
             }
-            if(counter > 301){
-                for(let i = 0; i<SLOTS.length; i++){
-                    if(holdStates[i] == 0){
-                        SPEED--
-                        if(SPEED < 1){
-                            SPEED = 1
-                        }
-                        if(document.getElementById(SLOTCANVAS[i]).style.top == winnerSlots[i].winPos){
-                            slotStates[i] = 1
-                        }
-                        else{
-                            slotAnimation(SLOTS[i], SLOTCANVAS[i], SPEED)
-                        }
-                    }
-                }
-                for(let i = 0; i<slotStates.length; i++){
-                    gameDone = gameDone + slotStates[i]
-                }
-                if(gameDone == 5){
-                    clearInterval(timerloop)
-                    counter = 0
-                    GAME_STATE = 0
-                    slotStates = [0,0,0,0,0]
-                    holdStates = [0,0,0,0,0]
-                    document.getElementById(ROLL_BUTTON).disabled = false
-                    document.getElementById(HOLD_BUTTON_1).disabled = false
-                    document.getElementById(HOLD_BUTTON_2).disabled = false
-                    document.getElementById(HOLD_BUTTON_3).disabled = false
-                    document.getElementById(HOLD_BUTTON_4).disabled = false
-                    document.getElementById(HOLD_BUTTON_5).disabled = false
-                }
-                else{
-                    gameDone = 0
-                }
+            slotsClosed = slotsClosed+1
+            start_gap = start_gap + stop_gap
+            if(slotsClosed == 5){
+                clearInterval(timerloop) // Loop end
+                slotStates = [0,0,0,0,0]
+                document.getElementById(ROLL_BUTTON).disabled = false
+                document.getElementById(HOLD_BUTTON_1).disabled = false
+                document.getElementById(HOLD_BUTTON_2).disabled = false
+                document.getElementById(HOLD_BUTTON_3).disabled = false
+                document.getElementById(HOLD_BUTTON_4).disabled = false
+                document.getElementById(HOLD_BUTTON_5).disabled = false
             }
-            counter++
         }
-        else{
-            
-            for(let i = 0; i<SLOTS.length; i++){
-                if(holdStates[i] == 0){
-                    slotAnimation(SLOTS[i], SLOTCANVAS[i], SPEED)
-                }
-                else{
-                    slotStates[i] = 1
-                }
-            }
-            counter++
-        }
+        
+        counter++
 
     },10)
     

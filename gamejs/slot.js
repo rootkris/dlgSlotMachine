@@ -4,7 +4,7 @@
 
 */
 
-function generateSlotContent(type, targetData, height){
+function generateSlotContent(type, targetData, height){ //Initial data input
     let slotData = 0
     generateResult = []
     for(let i = 0; i<targetData.length; i++){
@@ -13,17 +13,21 @@ function generateSlotContent(type, targetData, height){
                 content: targetData[i].slotContent,
                 desc: targetData[i].slotDesc,
                 sentence: targetData[i].slotSentence,
-                winPos: (i+1)*height
+                winPos: 0
             }
             generateResult[i] = slotData         
         }
     }
 
-    var returnArray = new Array()
+    var returnArray = new Array() //Clears empty array slots
     for(let i = 0; i<generateResult.length; i++){
         if(generateResult[i]){
             returnArray.push(generateResult[i])
         }
+    }
+
+    for(let i = 0; i<returnArray.length; i++){ //Calculates win positions
+        returnArray[i].winPos = (i+1)*height
     }
 
     return returnArray
@@ -61,9 +65,9 @@ function randomSlotPosition(slotArray){
 
 function slotAnimation(slotArray, canvas, speed){
     let c = document.getElementById(canvas)
-    let range = (slotArray[slotArray.length-1]-64)
+    let range = -(slotArray.length*64)
     c.style.top = c.offsetTop-speed+"px"
-    if(c.offsetTop < range){
+    if(c.offsetTop <= range){
         c.style.top = 0+"px"
     }
 

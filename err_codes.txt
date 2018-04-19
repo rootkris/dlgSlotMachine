@@ -1,2 +1,0 @@
-Error Code 0 : Connection to database failed!
-Error Code 1 : Error retrieving data, database empty! 

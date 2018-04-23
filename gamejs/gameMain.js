@@ -34,6 +34,7 @@ let SLOT_4
 let SLOT_5
 let SLOTS = [SLOT_1,SLOT_2,SLOT_3,SLOT_4,SLOT_5]
 let GAME_STATE = 0
+let TURN_COUNT = 0
 let winnerSlots = []
 let slotStates = [0,0,0,0,0]
 
@@ -98,13 +99,15 @@ function holdButtonToggler(holdButtonNumber){
 function selectWinners(){
     for(let i=0; i<5; i++){
         if(slotStates[i] == 0){
-            winnerSlots[i] = -(randomSlotPosition(SLOTS[i]))
+            winnerSlots[i] = (randomSlotPosition(SLOTS[i]))
+            
         }
     }
 }
 
 function initGame(){
     GAME_STATE = 1
+    TURN_COUNT += 1
     document.getElementById(ROLL_BUTTON).disabled = true
     document.getElementById(HOLD_BUTTON_1).disabled = true
     document.getElementById(HOLD_BUTTON_2).disabled = true
@@ -120,7 +123,6 @@ function initGame(){
     selectWinners()
 
     var timerloop = setInterval(function(){
-        console.log(counter)
         for(let i = 0; i<SLOTS.length; i++){
             if(slotStates[i] == 0){
                 slotAnimation(SLOTS[i], SLOTCANVAS[i], SPEED)
@@ -132,13 +134,14 @@ function initGame(){
 
         if(counter>start_gap){
             if(slotStates[slotsClosed] == 0){
-                document.getElementById(SLOTCANVAS[slotsClosed]).style.top = winnerSlots[slotsClosed]+"px"
+                document.getElementById(SLOTCANVAS[slotsClosed]).style.top = -winnerSlots[slotsClosed].winPos+"px"
                 slotStates[slotsClosed] = 1
             }
             slotsClosed = slotsClosed+1
             start_gap = start_gap + stop_gap
             if(slotsClosed == 5){
                 clearInterval(timerloop) // Loop end
+                GAME_STATE = 0
                 slotStates = [0,0,0,0,0]
                 document.getElementById(ROLL_BUTTON).disabled = false
                 document.getElementById(HOLD_BUTTON_1).disabled = false

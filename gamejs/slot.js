@@ -59,7 +59,7 @@ function drawSlot(slotArray, slotCanvas, sWidth, sHeight){
 
 function randomSlotPosition(slotArray){
     result = getRandomInt(slotArray.length)
-    result = slotArray[result].winPos
+    result = slotArray[result]
     return result
 }
 

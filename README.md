@@ -4,9 +4,7 @@ Hoian kõige uuemat versiooni üleval: www.mrsalong.ee/dlg
 
 ## Mida on vaja veel teha(koodis):
 
-1) Hold funktsioon uuesti teha, descriptioni vaatamine uuesti teha
-
-2) CSS kujundus vead mõnes kohas(ei tea miks see rolli nuppu praegu seal on kus ta on :D)
+1) CSS kujundus vead mõnes kohas(ei tea miks see rolli nuppu praegu seal on kus ta on :D)
 
 ## Kuidas failid paigutatud on:
 

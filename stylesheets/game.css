@@ -1,64 +1,85 @@
 body{
-    background-color:black;
-    overflow: hidden;
+    background-color:rgb(230, 228, 228);
 }
 
 canvas{
     position: relative;
-    float:left;
+    border: 1px solid black;
+}
 
+.logoTLU {
+    border: 1px solid black;
+}
+
+h1 {
+    color: #791537;
+    text-align: center;
+    font-style: italic;
+    text-transform: uppercase; 
+}
+
+.subHeading {
+    color: rgb(61, 61, 61);
+}
+
+.categoryList {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    
+    justify-content: space-between;
+}
+
+.categoryItem {
+    color: rgb(46, 45, 45);
+    text-align: center;
+    font-style: italic;
+    text-transform: uppercase; 
 }
 
 .gameBody{
-    background-color: white;
+    background-color: rgb(245, 224, 224);
     position:relative;
-    height: 600px;
-    width: 800px;
-    top: 150px;
+    width: 600px;
     margin: 0 auto;
-    
-}
-
-.gameBodyHeader{
-    background-color: green;
-    position: relative;
-    width: 100%;
-    height: 25%;
-    z-index: 3;
 }
 
 .gameBodySlots{
+    display: flex;
     background-color: white;
     position: relative;
-    width: 600px;
-    height: 100%;
-    left: 100px;
+    height: 100px;
     z-index: 1;
     overflow: hidden;
 }
 
-.gameBodySlotsSides{
-    background-color: gray;
+.gameStart {
     position: relative;
-    width: 100%;
-    height: 50%;
-    z-index: 2;
+    right: 0;
 }
 
-.gameBodyFooter{
-    background-color: blue;
-    position: relative;
-    width: 100%;
-    height: 25%;
-    z-index: 3;
+/* Idea */
+
+.idea {
+    background: #888;
+    position:relative;
+    width: 600px;
+    margin: 0 auto;
 }
-.gameBodySlotsOverlay{
-    background-color: white;
-    position: relative;
-    width: 100%;
-    height: 75%;
-    top: 25%;
-    z-index: 3;
+
+.ideaHeading {
+    font-style: italic;
+    text-transform: uppercase; 
+}
+
+h3 {
+    text-align: center;
 }
 
     /* The Modal (background) */

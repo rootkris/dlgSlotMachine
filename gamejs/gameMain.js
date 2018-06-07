@@ -136,12 +136,9 @@ function initGame(){
             if(slotStates[slotsClosed] == 0){
                 document.getElementById(SLOTCANVAS[slotsClosed]).style.top = -winnerSlots[slotsClosed].winPos+"px"
                 slotStates[slotsClosed] = 1
-                start_gap = start_gap + stop_gap
-                slotsClosed = slotsClosed+1
             }
-            else{
-                slotsClosed = slotsClosed+1
-            }
+            slotsClosed = slotsClosed+1
+            start_gap = start_gap + stop_gap
             if(slotsClosed == 5){
                 clearInterval(timerloop) // Loop end
                 GAME_STATE = 0

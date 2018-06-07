@@ -27,7 +27,7 @@ function generateSlotContent(type, targetData, height){ //Initial data input
     }
 
     for(let i = 0; i<returnArray.length; i++){ //Calculates win positions
-        returnArray[i].winPos = (i+1)*height
+        returnArray[i].winPos = ((i+1)*height) + 4
     }
 
     return returnArray

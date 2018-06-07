@@ -4,15 +4,25 @@ body{
 
 canvas{
     position: relative;
-    border: 1px solid black;
 }
 
+/* .backgroundImg {
+    background-image: url(../background.svg);
+    background-repeat: no-repeat;
+    width: 100vw;
+    height: 100vh;
+} */
+
 .logoTLU {
-    border: 1px solid black;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 h1 {
-    color: #791537;
+    color: #A60038;
+    padding: 10px;
+    margin: 0 5px;
     text-align: center;
     font-style: italic;
     text-transform: uppercase; 
@@ -23,45 +33,55 @@ h1 {
 }
 
 .categoryList {
-    padding: 0;
-    margin: 0;
+    display: grid;
     list-style: none;
-    
-    display: -webkit-box;
-    display: -moz-box;
-    display: -ms-flexbox;
-    display: -webkit-flex;
-    display: flex;
-    
-    justify-content: space-between;
+    grid-template-columns: 132px 132px 132px 132px 132px;
+    padding-left: 0;
 }
 
 .categoryItem {
-    color: rgb(46, 45, 45);
+    color: rgb(247, 245, 245);
     text-align: center;
     font-style: italic;
     text-transform: uppercase; 
+    background: #A60038;
+    margin: 0 5px;
+    padding: 10px;
 }
 
 .gameBody{
-    background-color: rgb(245, 224, 224);
+    background-color: rgb(230, 228, 228);
     position:relative;
-    width: 600px;
+    width: 660px;
     margin: 0 auto;
 }
 
 .gameBodySlots{
     display: flex;
-    background-color: white;
     position: relative;
     height: 100px;
     z-index: 1;
     overflow: hidden;
 }
 
+.gameSlotItem {
+    background: white;  
+    border: 1px solid black;
+    margin: 0 5px;
+}
+
 .gameStart {
     position: relative;
     right: 0;
+}
+
+.gameHoldBtn {
+    display: grid;
+    grid-template-columns: 132px 132px 132px 132px 132px;
+}
+
+.gameHoldItem {
+    margin: 5px;
 }
 
 /* Idea */

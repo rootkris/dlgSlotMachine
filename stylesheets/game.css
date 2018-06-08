@@ -38,9 +38,16 @@ canvas{
 
 /* Game with caption */
 
+.logoImg {
+    display: block;
+    margin: 0 auto;
+    max-width: 15%;
+    margin-bottom: 40px;
+}
+
 .logoHeading {
     display: block;
-    margin: 120px auto 20px auto;
+    margin: 0 auto 20px auto;
     max-width: 35%;
 }
 
@@ -235,16 +242,15 @@ h3 {
     padding: 10px;
     margin: 0 15px;
     font-size: 1.2em;
-    box-shadow: 0px 0px 6px rgba(207, 183, 185, 0.884), inset 0 0 1px grey;
+    font-weight: 500;
 }
 
 .logoTLU {
     position: relative;
     display: block;
     margin: 0 auto;
-    max-width: 20%;
+    max-width: 16%;
 }
-
 
 a {
     color: black;
@@ -258,12 +264,23 @@ a:visited {
     text-decoration: none;
 }
 
-a:hover {
-    text-decoration: underline;
+.menuItem {
+    display: inline-block;
+    color: #B5121B;
+    text-decoration: none;
 }
 
-a:active {
-    text-decoration: underline;
+.menuItem::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 1px;
+    background: #B5121B;
+    transition: width .3s;
+}
+
+.menuItem:hover::after {
+    width: 100%;
 }
 
     /* The Modal (background) */
@@ -396,12 +413,12 @@ a:active {
 
 @media (min-width:1500px) {
 
-    #logoHeading {
-        margin-bottom: 60px;
+    .categoryList {
+        margin-top: 60px;
     }
 
     .gameHoldBtn {
-        margin-bottom: 40px;
+        margin-bottom: 60px;
     }
 
     .ideaGrid {
@@ -416,4 +433,5 @@ a:active {
     .menuList {
         margin-bottom: 60px;
     }
+
 }

@@ -41,8 +41,8 @@ canvas{
 .logoHeading {
     display: block;
     margin: 0 auto;
-    max-width: 40%;
-    margin-bottom: 40px;
+    max-width: 35%;
+    margin-bottom: 20px;
     margin-top: 120px;
 }
 
@@ -184,7 +184,7 @@ h3 {
     margin: 0 auto;
     width: 760px;
     padding-left: 0;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 }
 
 .menuItem {

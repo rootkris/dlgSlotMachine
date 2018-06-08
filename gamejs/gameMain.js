@@ -37,6 +37,7 @@ let GAME_STATE = 0
 let TURN_COUNT = 0
 let winnerSlots = []
 let slotStates = [0,0,0,0,0]
+let ideaBox = ""
 
 /*
 
@@ -68,6 +69,8 @@ window.onload = function(){
     drawSlot(SLOT_3, SLOT_CANVAS_3, SET_SLOT_WIDTH, SET_SLOT_HEIGHT)
     drawSlot(SLOT_4, SLOT_CANVAS_4, SET_SLOT_WIDTH, SET_SLOT_HEIGHT)
     drawSlot(SLOT_5, SLOT_CANVAS_5, SET_SLOT_WIDTH, SET_SLOT_HEIGHT)
+    ideaBox = document.getElementById("ideaText")
+    ideaBox.innerHTML = "Roll to find an idea!"
 
     load_status = "Configuring buttons"
     document.getElementById(ROLL_BUTTON).disabled = false
@@ -108,6 +111,7 @@ function selectWinners(){
 function initGame(){
     GAME_STATE = 1
     TURN_COUNT += 1
+    document.getElementById("ideaText").innerHTML = "Calculating..."
     document.getElementById(ROLL_BUTTON).disabled = true
     document.getElementById(HOLD_BUTTON_1).disabled = true
     document.getElementById(HOLD_BUTTON_2).disabled = true
@@ -143,6 +147,8 @@ function initGame(){
                 clearInterval(timerloop) // Loop end
                 GAME_STATE = 0
                 slotStates = [0,0,0,0,0]
+                ideaBox.innerHTML = winnerSlots[2].sentence+" game for "+winnerSlots[0].sentence+" with "+winnerSlots[3].sentence+
+                " that is based on "+winnerSlots[4].sentence+" and the need for "+winnerSlots[1].sentence
                 document.getElementById(ROLL_BUTTON).disabled = false
                 document.getElementById(HOLD_BUTTON_1).disabled = false
                 document.getElementById(HOLD_BUTTON_2).disabled = false

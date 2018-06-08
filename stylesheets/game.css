@@ -250,7 +250,7 @@ h3 {
     background-color: rgb(243, 243, 243);
 }
 
-li.menuItem.menuR {
+.menuR {
     background-color: #B5121B;
 }
 
@@ -273,6 +273,8 @@ a:visited {
     text-decoration: none;
 }
 
+/* Menu underline */
+
 .menuItem {
     display: inline-block;
     color: #B5121B;
@@ -292,7 +294,8 @@ a:visited {
     width: 100%;
 }
 
-    /* The Modal (background) */
+/* The Modal (background) */
+
 .modal {
     display: none; /* Hidden by default */
     position: absolute; /* Middle of screen*/
@@ -449,4 +452,50 @@ a:visited {
         margin-bottom: 60px;
     }
 
+}
+
+/* Max-width 1100 */
+
+@media all and (max-width:1100px) { 
+
+    .logoImg {
+
+        max-width: 15%;
+    }
+    
+    .logoHeading {
+        max-width: 45%;
+    }
+
+    .logoTLU {
+        max-width: 25%;
+    }
+
+}
+
+/* Medium screens */
+@media all and (max-width: 800px) {
+
+    h3 {
+        font-size: 1.4em;
+        font-weight: 400;
+        max-width: 80%;
+    }
+    .menuList {
+        display: flex;
+        max-width: 90%;
+        justify-content: center;
+    }
+}
+
+@media all and (max-width: 500px) {
+    .menuList {
+        max-width: 40%;
+        flex-direction: column;
+    }
+
+    .menuItem {
+        margin-bottom: 5px;
+        font-size: 1em;
+    }
 }

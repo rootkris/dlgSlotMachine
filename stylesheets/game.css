@@ -176,7 +176,7 @@ h1 {
   }
 
 .gameHoldItem {
-    margin: 0px 15px;
+    margin: 0px 10px;
     border: 1px solid black;
     border-radius: 15px; 
     padding: 10px;
@@ -193,7 +193,7 @@ h1 {
 .ideaGrid {
     display: grid;
     grid-template-columns: 100px 660px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 .ideaHeading {
@@ -222,7 +222,7 @@ h3 {
     font-style: italic;
     font-weight: 500;
     font-size: 1.8em;
-    margin-bottom: 30px;
+    margin-bottom: 10px;
 }
 
 /* Menu */
@@ -243,7 +243,7 @@ h3 {
     text-align: center;
     border-radius: 15px;
     padding: 10px;
-    margin: 0 15px;
+    margin: 0 10px;
     font-size: 1.2em;
     font-weight: 500;
 }

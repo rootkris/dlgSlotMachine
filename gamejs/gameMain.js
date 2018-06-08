@@ -5,8 +5,8 @@ GLOBALS
 */
 
 //User defined globals
-let SET_SLOT_HEIGHT = 64
-let SET_SLOT_WIDTH = 64
+let SET_SLOT_HEIGHT = 60
+let SET_SLOT_WIDTH = 60
 let SLOT_TYPE_1 = "targetGroup"
 let SLOT_TYPE_2 = "problem"
 let SLOT_TYPE_3 = "genre"

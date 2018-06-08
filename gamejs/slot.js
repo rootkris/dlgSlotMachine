@@ -27,7 +27,7 @@ function generateSlotContent(type, targetData, height){ //Initial data input
     }
 
     for(let i = 0; i<returnArray.length; i++){ //Calculates win positions
-        returnArray[i].winPos = ((i+1)*height) + 4
+        returnArray[i].winPos = (i+1)*height + 4
     }
 
     return returnArray
@@ -39,19 +39,44 @@ function getRandomInt(max){
 
 
 function drawSlot(slotArray, slotCanvas, sWidth, sHeight){
+    let tempHeight = sHeight*2
     var c = document.getElementById(slotCanvas)
     var pixr = window.devicePixelRatio
+    let font = 16*pixr
     c.style.height = 2*(64*(slotArray.length))+"px" //Height
     c.style.width = 120+"px" //Width
     var ctx = c.getContext("2d")
     c.width = c.clientWidth*pixr  // To make sure the image is not blurry and acts properly,
     c.height = c.clientHeight*pixr // canvas is set to user resolutions
     ctx.textAlign = "center" 
-    ctx.font = (16*pixr)+"px Arial"
+    ctx.font = font+"px Arial"
 
     for(let i = 0; i<slotArray.length; i++){
-        ctx.fillText(slotArray[i].content, sWidth*pixr, sHeight*(i+1)*pixr)
-        ctx.fillText(slotArray[i].content, sWidth*pixr, sHeight*(i+1+slotArray.length)*pixr)
+        let sliced = null
+        let floor = 0
+        let c_index = 0
+        let index = 0
+        let splitter = slotArray[i].content
+        if(splitter.includes("%") === true){
+            while(splitter.includes("%") === true){
+                c_index = splitter.indexOf("%")
+                sliced = splitter.slice(index,c_index)
+                ctx.fillText(sliced, sWidth*pixr, -font+sHeight*(i+1)*pixr+(font*floor))
+                ctx.fillText(sliced, sWidth*pixr, -font+sHeight*(i+1+slotArray.length)*pixr+(font*floor))
+                splitter = splitter.replace("%","")
+                floor += 1
+                index = c_index
+            }
+            sliced = splitter.slice(index)
+            ctx.fillText(sliced, sWidth*pixr, -font+sHeight*(i+1)*pixr+(font*floor))
+            ctx.fillText(sliced, sWidth*pixr, -font+sHeight*(i+1+slotArray.length)*pixr+(font*floor))
+
+        }
+        else{
+            ctx.fillText(slotArray[i].content, sWidth*pixr, sHeight*(i+1)*pixr)
+            ctx.fillText(slotArray[i].content, sWidth*pixr, sHeight*(i+1+slotArray.length)*pixr)
+            }
+
         console.log(slotCanvas)
     }
 

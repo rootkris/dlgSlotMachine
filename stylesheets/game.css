@@ -131,7 +131,7 @@ h1 {
     text-shadow: 0 -40px 100px, 0 0 2px, 0 0 1em #a01b1b, 0 0 0.5em #ff4444, 0 0 0.1em #ff4444, 0 5px 3px #000;
   }
   .blinking b span{
-    animation: blink linear infinite 4s;
+    animation: blink linear infinite 5s;
   }
   @keyframes blink {
     78% {

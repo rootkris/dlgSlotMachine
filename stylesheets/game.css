@@ -127,6 +127,44 @@ h1 {
     margin-bottom: 20px;
 }
 
+.blinking b{
+    color: #FFFAFA;
+    text-shadow: 0 -40px 100px, 0 0 2px, 0 0 1em #a01b1b, 0 0 0.5em #ff4444, 0 0 0.1em #ff4444, 0 5px 3px #000;
+  }
+  .blinking b span{
+    animation: blink linear infinite 4s;
+  }
+  @keyframes blink {
+    78% {
+      color: inherit;
+      text-shadow: inherit;
+    }
+    79%{
+       color:rgb(216, 25, 34);
+    }
+    80% {
+      
+      text-shadow: none;
+    }
+    81% {
+      color: inherit;
+      text-shadow: inherit;
+    }
+    82% {
+      color: rgb(202, 29, 37);
+      text-shadow: none;
+    }
+    83% {
+      color: inherit;
+      text-shadow: inherit;
+    }
+    92.5% {
+      color: #B5121B;
+      text-shadow: none;
+    }
+
+  }
+
 .gameHoldItem {
     margin: 0px 15px;
     border: 1px solid black;

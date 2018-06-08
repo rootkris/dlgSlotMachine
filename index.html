@@ -20,8 +20,7 @@
     </div>
 
     <div class="backgroundTop">
-        <img src="tlu.svg" alt="Tallinn University logo" class="logoTLU">
-        <img src="heading.svg" alt="Digital Learning Games, Idea Generating Machine" class="logoHeading">
+        <img src="img/heading.svg" alt="Digital Learning Games, Idea Generating Machine" class="logoHeading">
     </div>
 
     <div class="gameBody" id="gameBody">
@@ -34,7 +33,7 @@
             <li class="categoryItem">Learning:</li>
         </ul>
 
-        <div class="gameBodySlots">
+        <div class="gameBodySlots grid">
             <div class="gameSlotItem">
                 <canvas id="slot1"></canvas>
             </div>
@@ -54,8 +53,9 @@
             <div class="gameSlotItem">
                 <canvas id="slot5"></canvas>
             </div>
-            
-            <div class="gameBodySlotsOverlay">
+
+            <div class="gameStartBtn">
+                <button type="button" id="rollButton" class="gameStart" onclick="initGame()">New<br>idea</button>
             </div>
         </div>
 
@@ -68,12 +68,8 @@
         </div>
     </div>
 
-    <div class="gameStartBtn">
-        <button type="button" id="rollButton" class="gameStart" onclick="initGame()">New<br>idea</button>
-    </div>
-
     <div class="idea">
-        <div class="ideaFlex">
+        <div class="ideaGrid">
             <h2 class="ideaHeading">Idea:</h2>
             <p class="ideaText">Shooter game for Elemntary school kids with Non Player Characters that is based on self evaluation</p>
         </div>
@@ -82,13 +78,15 @@
 
     <div class="menu">
         <ul class="menuList">
-            <li class="menuItem">About DLG</li>
-            <li class="menuItem">Apply</li>
-            <li class="menuItem">Contacts</li>
-            <li class="menuItem">Credits</li>
-            <li class="menuItem">Red</li>
+            <li class="menuItem"><a href="" class="menuAboutDLG">About DLG</a></li>
+            <li class="menuItem"><a href="https://estonia.dreamapply.com/courses/course/375-msc-digital-learning-games" target="_blank" class="menuApply">Apply</a></li>
+            <li class="menuItem"><a href="" class="menuContacts">Contacts</a></li>
+            <li class="menuItem"><a href="" class="menuCredits">Credits</a></li>
+            <li class="menuItem"><a href="" class="menuR">Red</a></li>
         </ul>
     </div>
+
+    <a href="https://www.tlu.ee" target="_blank" class="linkLogoTLU"><img src="img/tlu.svg" alt="Tallinn University logo" class="logoTLU"></a>
 
     <div id="infoModal" class="modal">
 

@@ -1,29 +1,49 @@
+* {
+    box-sizing: border-box;
+}
+
 body{
     background-color:rgb(245, 244, 244);
+    font-family: 'Times New Roman', Times, serif;
 }
 
 canvas{
     position: relative;
 }
 
-.backgroundTop {
-    background-image: url(../top1.svg);
-    background-repeat: no-repeat;
-    width: 100vw;
+/* Servad */
+
+#top, #bottom, #left, #right {
+    background: #B5121B;
+    position: fixed;
+    opacity: 1;
+    z-index: 50;
 }
 
-.logoTLU {
-    display: block;
-    margin: 0 auto;
-    max-width: 20%; 
-    margin-bottom: 40px;
+#left, #right {
+    top: 0; bottom: 0;
+    width: 4px;
 }
+
+#left { left: 0; }
+#right { right: 0; }
+
+#top, #bottom {
+    left: 0; right: 0;
+    height: 4px;
+}
+
+#top { top: 0; }
+#bottom { bottom: 0; }
+
+/* Game with caption */
 
 .logoHeading {
     display: block;
     margin: 0 auto;
     max-width: 40%;
     margin-bottom: 40px;
+    margin-top: 120px;
 }
 
 h1 {
@@ -50,6 +70,8 @@ h1 {
     color: rgb(245, 244, 244);
     text-align: center;
     font-style: italic;
+    font-weight: bold;
+    font-size: 1.2em;
     text-transform: uppercase; 
     background: #B5121B;
     margin: 0 15px;
@@ -66,12 +88,18 @@ h1 {
 
 .gameBodySlots{
     display: flex;
+    flex-flow: row wrap;
     position: relative;
     z-index: 1;
 }
 
+.grid {
+    display: grid;
+    grid-template-columns: 152px 152px 152px 152px 152px 100px;
+}
+
 .gameSlotItem {
-    background: white;  
+    background: rgb(245, 244, 244);  
     border: 1px solid black;
     margin: 0 15px;
     height: 100px;
@@ -79,6 +107,7 @@ h1 {
 }
 
 .gameStart {
+    font-family: 'Times New Roman', Times, serif;
     position: relative;
     border-radius: 50%;
     background-color: #B5121B;
@@ -87,7 +116,7 @@ h1 {
     padding: 20px;
     text-align: center;
     font-size: 2em;
-    margin: 4px 2px;
+    margin: -12px 0 0 12px;
     font-style: italic;
     text-transform: uppercase; 
 }
@@ -95,6 +124,7 @@ h1 {
 .gameHoldBtn {
     display: grid;
     grid-template-columns: 152px 152px 152px 152px 152px;
+    margin-bottom: 60px;
 }
 
 .gameHoldItem {
@@ -107,19 +137,42 @@ h1 {
 /* Idea */
 
 .idea {
-    background: #888;
     position:relative;
-    width: 600px;
+    width: 760px;
     margin: 0 auto;
 }
 
+.ideaGrid {
+    display: grid;
+    grid-template-columns: 100px 660px;
+    margin-bottom: 60px;
+}
+
 .ideaHeading {
+    color: rgb(245, 244, 244);
+    text-align: center;
     font-style: italic;
     text-transform: uppercase; 
+    background: #B5121B;
+    border-radius: 20px 0 0 20px;
+    margin: 0 0 0 10px;
+    padding-top: 18px; 
+}
+
+.ideaText {
+    border: 1px solid black;
+    border-radius: 0 20px 20px 0; 
+    padding: 10px;
+    margin: 0 10px;
+    font-size: 1.1em;
 }
 
 h3 {
     text-align: center;
+    font-style: italic;
+    font-weight: 500;
+    font-size: 1.8em;
+    margin-bottom: 60px;
 }
 
 /* Menu */
@@ -127,19 +180,54 @@ h3 {
 .menuList {
     display: grid;
     list-style: none;
-    grid-template-columns: 130px 130px 130px 130px 130px;
+    grid-template-columns: 152px 152px 152px 152px 152px;
     margin: 0 auto;
-    width: 660px;
+    width: 760px;
+    padding-left: 0;
+    margin-bottom: 60px;
 }
 
 .menuItem {
     border: 1px solid black;
     font-style: italic;
-    margin: 0 5px;
     text-align: center;
     border-radius: 20px;
     padding: 10px;
+    margin: 0 15px;
+    font-size: 1.2em;
 }
+
+.logoTLU {
+    position: relative;
+    left: 50%;
+    margin-left: -200px; 
+    width: 400px;
+    height: 100px;
+}
+
+
+a {
+    color: black;
+}
+
+a:link {
+    text-decoration: none;
+}
+
+a:visited {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+a:active {
+    text-decoration: underline;
+}
+
+
+
 
     /* The Modal (background) */
 .modal {

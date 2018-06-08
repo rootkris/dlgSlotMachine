@@ -40,17 +40,18 @@ function getRandomInt(max){
 
 function drawSlot(slotArray, slotCanvas, sWidth, sHeight){
     var c = document.getElementById(slotCanvas)
-    c.style.height = 2*(65*(slotArray.length))+"px" //Height
+    var pixr = window.devicePixelRatio
+    c.style.height = 2*(64*(slotArray.length))+"px" //Height
     c.style.width = 120+"px" //Width
     var ctx = c.getContext("2d")
-    c.width = c.clientWidth   // To make sure the image is not blurry and acts properly,
-    c.height = c.clientHeight // canvas is set to user resolution
+    c.width = c.clientWidth*pixr  // To make sure the image is not blurry and acts properly,
+    c.height = c.clientHeight*pixr // canvas is set to user resolutions
     ctx.textAlign = "center" 
-    ctx.font = "bold 16px Arial"
+    ctx.font = (16*pixr)+"px Arial"
 
     for(let i = 0; i<slotArray.length; i++){
-        ctx.fillText(slotArray[i].content, sWidth, sHeight*(i+1))
-        ctx.fillText(slotArray[i].content, sWidth, sHeight*(i+1+slotArray.length))
+        ctx.fillText(slotArray[i].content, sWidth*pixr, sHeight*(i+1)*pixr)
+        ctx.fillText(slotArray[i].content, sWidth*pixr, sHeight*(i+1+slotArray.length)*pixr)
         console.log(slotCanvas)
     }
 

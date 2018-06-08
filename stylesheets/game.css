@@ -1,26 +1,33 @@
 body{
-    background-color:rgb(230, 228, 228);
+    background-color:rgb(245, 244, 244);
 }
 
 canvas{
     position: relative;
 }
 
-/* .backgroundImg {
-    background-image: url(../background.svg);
+.backgroundTop {
+    background-image: url(../top1.svg);
     background-repeat: no-repeat;
     width: 100vw;
-    height: 100vh;
-} */
+}
 
 .logoTLU {
     display: block;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 0 auto;
+    max-width: 20%; 
+    margin-bottom: 40px;
+}
+
+.logoHeading {
+    display: block;
+    margin: 0 auto;
+    max-width: 40%;
+    margin-bottom: 40px;
 }
 
 h1 {
-    color: #A60038;
+    color: #B5121B;
     padding: 10px;
     margin: 0 5px;
     text-align: center;
@@ -35,45 +42,46 @@ h1 {
 .categoryList {
     display: grid;
     list-style: none;
-    grid-template-columns: 132px 132px 132px 132px 132px;
+    grid-template-columns: 152px 152px 152px 152px 152px;
     padding-left: 0;
 }
 
 .categoryItem {
-    color: rgb(247, 245, 245);
+    color: rgb(245, 244, 244);
     text-align: center;
     font-style: italic;
     text-transform: uppercase; 
-    background: #A60038;
-    margin: 0 5px;
+    background: #B5121B;
+    margin: 0 15px;
     padding: 10px;
+    border-radius: 20px 20px 0 0;
 }
 
 .gameBody{
-    background-color: rgb(230, 228, 228);
+    background-color: rgb(245, 244, 244);
     position:relative;
-    width: 660px;
+    width: 760px;
     margin: 0 auto;
 }
 
 .gameBodySlots{
     display: flex;
     position: relative;
-    height: 100px;
     z-index: 1;
-    overflow: hidden;
 }
 
 .gameSlotItem {
     background: white;  
     border: 1px solid black;
-    margin: 0 5px;
+    margin: 0 15px;
+    height: 100px;
+    overflow: hidden;
 }
 
 .gameStart {
     position: relative;
     border-radius: 50%;
-    background-color: #A60038;
+    background-color: #B5121B;
     border: 1px solid black;
     color: white;
     padding: 20px;
@@ -86,11 +94,14 @@ h1 {
 
 .gameHoldBtn {
     display: grid;
-    grid-template-columns: 132px 132px 132px 132px 132px;
+    grid-template-columns: 152px 152px 152px 152px 152px;
 }
 
 .gameHoldItem {
-    margin: 5px;
+    margin: 10px 15px;
+    border: 1px solid black;
+    border-radius: 20px; 
+    padding: 10px;
 }
 
 /* Idea */
@@ -109,6 +120,25 @@ h1 {
 
 h3 {
     text-align: center;
+}
+
+/* Menu */
+
+.menuList {
+    display: grid;
+    list-style: none;
+    grid-template-columns: 130px 130px 130px 130px 130px;
+    margin: 0 auto;
+    width: 660px;
+}
+
+.menuItem {
+    border: 1px solid black;
+    font-style: italic;
+    margin: 0 5px;
+    text-align: center;
+    border-radius: 20px;
+    padding: 10px;
 }
 
     /* The Modal (background) */
@@ -198,7 +228,7 @@ h3 {
 
 .modal-header {
     padding: 2px 16px;
-    background-color: #A60038;
+    background-color: #B5121B;
     color: white;
 }
 
@@ -206,7 +236,7 @@ h3 {
 
 .modal-footer {
     padding: 2px 16px;
-    background-color: #A60038;
+    background-color: #B5121B;
     color: white;
 }
 

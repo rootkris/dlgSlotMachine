@@ -273,14 +273,14 @@ div .headings {
     background: #B5121B;
     border-radius: 15px 0 0 15px;
     margin: 0 0 0 15px;
-    padding-top: 12px; 
+    padding: 8px;
     box-shadow: 1px 1px 10px rgb(209, 209, 209);
 }
 
 .ideaText {
     border: 1px solid black;
     border-radius: 0 15px 15px 0; 
-    padding: 5px;
+    padding: 8px;
     margin: 0 15px 0 10px;
     font-size: 1.1em;
     box-shadow: 1px 1px 10px rgb(209, 209, 209);

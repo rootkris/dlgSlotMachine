@@ -62,20 +62,20 @@ function drawSlot(slotArray, slotCanvas, sWidth, sHeight){
             while(splitter.includes("%") === true){
                 c_index = splitter.indexOf("%")
                 sliced = splitter.slice(index,c_index)
-                ctx.fillText(sliced, sWidth*pixr, -font+(sHeight*(i+1))*pixr+(font*floor))
-                ctx.fillText(sliced, sWidth*pixr, -font+(sHeight*(i+1+slotArray.length))*pixr+(font*floor))
+                ctx.fillText(sliced, sWidth*pixr, -font-20+(sHeight*(i+1))*pixr+(font*floor))
+                ctx.fillText(sliced, sWidth*pixr, -font-20+(sHeight*(i+1+slotArray.length))*pixr+(font*floor))
                 splitter = splitter.replace("%","")
                 floor += 1
                 index = c_index
             }
             sliced = splitter.slice(index)
-            ctx.fillText(sliced, sWidth*pixr, -font+(sHeight*(i+1))*pixr+(font*floor))
-            ctx.fillText(sliced, sWidth*pixr, -font+(sHeight*(i+1+slotArray.length))*pixr+(font*floor))
+            ctx.fillText(sliced, sWidth*pixr, -font-20+(sHeight*(i+1))*pixr+(font*floor))
+            ctx.fillText(sliced, sWidth*pixr, -font-20+(sHeight*(i+1+slotArray.length))*pixr+(font*floor))
 
         }
         else{
-            ctx.fillText(slotArray[i].content, sWidth*pixr, (sHeight*(i+1))*pixr)
-            ctx.fillText(slotArray[i].content, sWidth*pixr, (sHeight*(i+1+slotArray.length))*pixr)
+            ctx.fillText(slotArray[i].content, sWidth*pixr, (-20+sHeight*(i+1))*pixr)
+            ctx.fillText(slotArray[i].content, sWidth*pixr, (-20+sHeight*(i+1+slotArray.length))*pixr)
             }
 
         console.log(slotCanvas)

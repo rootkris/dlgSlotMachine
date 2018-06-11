@@ -11,6 +11,8 @@ canvas{
     position: relative;
 }
 
+
+
 /* Servad */
 
 #top, #bottom, #left, #right {
@@ -84,6 +86,72 @@ h1 {
     padding: 10px;
     border-radius: 15px 15px 0 0;
 }
+
+
+#description {
+    background-color: rgb(181,18,27,0.2);
+    text-align: center;
+    display: block;
+    position: relative;
+    padding: 1em 1em 1em 0em;
+    overflow: hidden;
+    box-shadow: .7em .7em 0 rgba(0, 0, 0, 0.1);
+    transition: all .3s;
+
+}
+
+#program {
+
+    background-color:rgb(253,245,230,0.2);
+    text-align: center;
+    display: block;
+    position: relative;
+    padding: 1em 1em 1em 0em;
+    overflow: hidden;
+    box-shadow: .7em .7em 0 rgba(0, 0, 0, 0.1);
+    transition: all .3s;
+}
+
+#info {
+    background-color:rgb(139,136,120);
+    text-align: center;
+    display: block;
+    position: relative;
+    padding: 1em 1em 1em 0em;
+    overflow: hidden;
+    box-shadow: .7em .7em 0 rgba(0, 0, 0, 0.1);
+    transition: all .3s;
+}
+
+
+
+div .headings {
+    font-size: 1em;
+    font-weight: 400;
+    font-family: "Arial";
+    color:#333333;
+    padding: .7em 1.6em;
+    margin: 0;
+    line-height: 1;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 10%;
+  }
+  
+  div .headings {
+    -webkit-transform: rotate(90deg) translateX(20px);
+    -moz-transform: rotate(90deg) translateX(20px);
+    -ms-transform: rotate(90deg) translateX(20px);
+    -o-transform: rotate(90deg) translateX(20px);
+    transform: rotate(90deg) translateX(20px);
+    -webkit-transform-origin: 1.8em .5em;
+    -moz-transform-origin: 1.8em .5em;
+    -ms-transform-origin: 1.8em .5em;
+    -o-transform-origin: 1.8em .5em;
+    transform-origin: 1.8em .5em;
+  }
+
 
 .gameBody{
     background-color: rgb(253, 253, 253);
@@ -181,6 +249,7 @@ h1 {
     border-radius: 15px; 
     padding: 10px;
 }
+
 
 /* Idea */
 
@@ -600,4 +669,5 @@ a:visited {
     .logoTLU {
         max-width: 45%;
     }
+
 }

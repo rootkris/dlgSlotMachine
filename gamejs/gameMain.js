@@ -79,6 +79,11 @@ window.onload = function(){
     document.getElementById(HOLD_BUTTON_3).disabled = true
     document.getElementById(HOLD_BUTTON_4).disabled = true
     document.getElementById(HOLD_BUTTON_5).disabled = true
+	document.getElementById("holdButton1").addEventListener("click", lockBtn1);
+	document.getElementById("holdButton2").addEventListener("click", lockBtn2);
+	document.getElementById("holdButton3").addEventListener("click", lockBtn3);
+	document.getElementById("holdButton4").addEventListener("click", lockBtn4);
+	document.getElementById("holdButton5").addEventListener("click", lockBtn5);
 
     load_status = "Loading completed!"
     document.getElementById("loaderBody").style.display = "none" // Hides loading screen
@@ -90,9 +95,34 @@ window.onload = function(){
     Game Controller
 
 */
+function lockBtn1(){
+	document.getElementById("lock1").src = "img/lock_locked.svg"
+	document.getElementById(HOLD_BUTTON_1).disabled = true
+}
+
+function lockBtn2(){
+	document.getElementById("lock2").src = "img/lock_locked.svg"
+	document.getElementById(HOLD_BUTTON_2).disabled = true	
+}
+
+function lockBtn3(){
+	document.getElementById("lock3").src = "img/lock_locked.svg"
+	document.getElementById(HOLD_BUTTON_3).disabled = true
+}
+
+function lockBtn4(){
+	document.getElementById("lock4").src = "img/lock_locked.svg"
+	document.getElementById(HOLD_BUTTON_4).disabled = true
+}
+
+function lockBtn5(){
+	document.getElementById("lock5").src = "img/lock_locked.svg"
+	document.getElementById(HOLD_BUTTON_5).disabled = true
+}
+
 function holdButtonToggler(holdButtonNumber){
     if(slotStates[holdButtonNumber] == 0){
-        slotStates[holdButtonNumber] = 1
+		slotStates[holdButtonNumber] = 1
     }
     else{
         slotStates[holdButtonNumber] = 0
@@ -125,6 +155,9 @@ function initGame(){
     let slotsClosed = 0
     let SPEED = INITIAL_SPEED 
     selectWinners()
+	
+	var roll = new Audio("sound/rolling.wav");
+		roll.play();
 
     var timerloop = setInterval(function(){
         for(let i = 0; i<SLOTS.length; i++){
@@ -144,6 +177,7 @@ function initGame(){
             slotsClosed += 1
             start_gap = start_gap + stop_gap
             if(slotsClosed == 5){
+				roll.pause()
                 clearInterval(timerloop) // Loop end
                 GAME_STATE = 0
                 slotStates = [0,0,0,0,0]
@@ -155,6 +189,11 @@ function initGame(){
                 document.getElementById(HOLD_BUTTON_3).disabled = false
                 document.getElementById(HOLD_BUTTON_4).disabled = false
                 document.getElementById(HOLD_BUTTON_5).disabled = false
+				document.getElementById("lock1").src="img/lock_open.svg"
+				document.getElementById("lock2").src="img/lock_open.svg"
+				document.getElementById("lock3").src="img/lock_open.svg"
+				document.getElementById("lock4").src="img/lock_open.svg"
+				document.getElementById("lock5").src="img/lock_open.svg"
             }
         }
         

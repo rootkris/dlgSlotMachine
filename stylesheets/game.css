@@ -11,8 +11,6 @@ canvas{
     position: relative;
 }
 
-
-
 /* Servad */
 
 #top, #bottom, #left, #right {
@@ -86,96 +84,6 @@ h1 {
     padding: 10px;
     border-radius: 15px 15px 0 0;
 }
-
-
-#description {
-    background-color: rgb(181,18,27,0.2);
-    text-align: center;
-    display: block;
-    position: relative;
-    padding: 1em 1em 1em 0em;
-    overflow: hidden;
-    box-shadow: .7em .7em 0 rgba(0, 0, 0, 0.1);
-    transition: all .3s;
-
-}
-
-#program {
-
-    background-color:rgb(253,245,230,0.2);
-    text-align: center;
-    display: block;
-    position: relative;
-    padding: 1em 1em 1em 0em;
-    overflow: hidden;
-    box-shadow: .7em .7em 0 rgba(0, 0, 0, 0.1);
-    transition: all .3s;
-}
-
-#contacts {
-
-    background-color:rgba(252, 190, 190, 0.85);
-    text-align: center;
-    display: block;
-    position: relative;
-    padding: 1em 1em 1em 0em;
-    overflow: hidden;
-    box-shadow: .7em .7em 0 rgba(0, 0, 0, 0.1);
-    transition: all .3s;
-}
-
-#info {
-    background-color:rgb(139,136,120);
-    text-align: center;
-    display: block;
-    position: relative;
-    padding: 1em 1em 1em 0em;
-    overflow: hidden;
-    box-shadow: .7em .7em 0 rgba(0, 0, 0, 0.1);
-    transition: all .3s;
-}
-
-div .p{
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-}
-
-div .headings {
-    font-size: 2em;
-    font-weight: 400;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color:#333333;
-    padding: .7em 1.6em;
-    margin: 0;
-    line-height: 1;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 10%;
-  }
-  
-  div .headings {
-    -webkit-transform: rotate(90deg) translateX(20px);
-    -moz-transform: rotate(90deg) translateX(20px);
-    -ms-transform: rotate(90deg) translateX(20px);
-    -o-transform: rotate(90deg) translateX(20px);
-    transform: rotate(90deg) translateX(20px);
-    -webkit-transform-origin: 1.8em .5em;
-    -moz-transform-origin: 1.8em .5em;
-    -ms-transform-origin: 1.8em .5em;
-    -o-transform-origin: 1.8em .5em;
-    transform-origin: 1.8em .5em;
-  }
-
-  div .DLGHeading {
-      font-size: 2em;
-      font-weight: 400;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      color: #333333;
-      top: 4;
-      left: 0;
-      width: 10%;
-      position: absolute;
-  }
 
 .gameBody{
     background-color: rgb(253, 253, 253);
@@ -274,6 +182,11 @@ div .headings {
     padding: 10px;
 }
 
+.lock-icon{
+	vertical-align: middle;
+	height: 20px;
+	width: 20px;
+}
 
 /* Idea */
 
@@ -297,14 +210,14 @@ div .headings {
     background: #B5121B;
     border-radius: 15px 0 0 15px;
     margin: 0 0 0 15px;
-    padding: 8px;
+    padding-top: 12px; 
     box-shadow: 1px 1px 10px rgb(209, 209, 209);
 }
 
 .ideaText {
     border: 1px solid black;
     border-radius: 0 15px 15px 0; 
-    padding: 8px;
+    padding: 5px;
     margin: 0 15px 0 10px;
     font-size: 1.1em;
     box-shadow: 1px 1px 10px rgb(209, 209, 209);
@@ -693,5 +606,4 @@ a:visited {
     .logoTLU {
         max-width: 45%;
     }
-
 }

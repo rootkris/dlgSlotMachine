@@ -27,7 +27,8 @@ function generateSlotContent(type, targetData, height){ //Initial data input
     }
 
     for(let i = 0; i<returnArray.length; i++){ //Calculates win positions
-        returnArray[i].winPos = (i+1)*height + 4
+        returnArray[i].winPos = i*height + 4
+        console.log(returnArray[i])
     }
 
     return returnArray
@@ -61,20 +62,20 @@ function drawSlot(slotArray, slotCanvas, sWidth, sHeight){
             while(splitter.includes("%") === true){
                 c_index = splitter.indexOf("%")
                 sliced = splitter.slice(index,c_index)
-                ctx.fillText(sliced, sWidth*pixr, -font+sHeight*(i+1)*pixr+(font*floor))
-                ctx.fillText(sliced, sWidth*pixr, -font+sHeight*(i+1+slotArray.length)*pixr+(font*floor))
+                ctx.fillText(sliced, sWidth*pixr, -font+(sHeight*(i+1))*pixr+(font*floor))
+                ctx.fillText(sliced, sWidth*pixr, -font+(sHeight*(i+1+slotArray.length))*pixr+(font*floor))
                 splitter = splitter.replace("%","")
                 floor += 1
                 index = c_index
             }
             sliced = splitter.slice(index)
-            ctx.fillText(sliced, sWidth*pixr, -font+sHeight*(i+1)*pixr+(font*floor))
-            ctx.fillText(sliced, sWidth*pixr, -font+sHeight*(i+1+slotArray.length)*pixr+(font*floor))
+            ctx.fillText(sliced, sWidth*pixr, -font+(sHeight*(i+1))*pixr+(font*floor))
+            ctx.fillText(sliced, sWidth*pixr, -font+(sHeight*(i+1+slotArray.length))*pixr+(font*floor))
 
         }
         else{
-            ctx.fillText(slotArray[i].content, sWidth*pixr, sHeight*(i+1)*pixr)
-            ctx.fillText(slotArray[i].content, sWidth*pixr, sHeight*(i+1+slotArray.length)*pixr)
+            ctx.fillText(slotArray[i].content, sWidth*pixr, (sHeight*(i+1))*pixr)
+            ctx.fillText(slotArray[i].content, sWidth*pixr, (sHeight*(i+1+slotArray.length))*pixr)
             }
 
         console.log(slotCanvas)
